@@ -2915,11 +2915,11 @@ input, select, textarea {
 		}
 
 		header > p {
-			font-style: italic;
+			font-style: normal;
 		}
 
 		header > h1 + p {
-			font-size: 1.1rem;
+			font-size: 1rem;
 			margin-top: -0.5rem;
 			line-height: 2;
 		}
@@ -3229,7 +3229,7 @@ input, select, textarea {
 			width: 100%;
 			height: 100%;
 			background-color: #1a2229;
-			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.363), rgba(25, 33, 44, 0.527)), url("../../../");
+			background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.363), rgba(25, 33, 44, 0.527));
 			background-size: auto,								auto,														100% auto;
 			background-position: center,								center,														top center;
 			background-repeat: repeat,								no-repeat,													no-repeat;
@@ -3560,7 +3560,7 @@ input, select, textarea {
 			pointer-events: auto;
 			border-style: solid;
 			border-color: #ffffff;
-			border-width: 5px !important;
+			border-width: 0px !important;
 			font-family: "Source Sans Pro", Helvetica, sans-serif;
 			font-size: 2.25rem;
 			font-weight: 900;
@@ -3593,7 +3593,7 @@ input, select, textarea {
 
 				#header .logo {
 					font-size: 1.75rem;
-					border-width: 3px !important;
+					border-width: 0px !important;
 				}
 
 		}
@@ -4778,4 +4778,77 @@ input, select, textarea {
 body::-webkit-scrollbar-thumb {
   background-color: rgb(255, 255, 255);
   outline: 1px solid rgb(18, 36, 54);
+}
+
+/*Language selector*/
+.select {
+	cursor: pointer;
+	position: relative;
+	margin: 50px auto;
+	width: 100px;
+	color: #999;
+	position: relative;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+.select:hover .options {
+	display: block;
+}
+
+.options {
+	position: absolute;
+	width: 100%;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	padding-top: 44px;
+	box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+	display: none;
+}
+
+.options ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.options ul li {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.option {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 10px 15px;
+	padding-right: 30px;
+}
+.option:hover {
+	background-color: cadetblue;  
+	color: white;
+}
+.current .option:after {
+	content: "\f0d8";
+	font-family: "Fontawesome";
+	position: absolute;
+	right: 10px;   
+	transform: rotate(180deg);
+}
+.current:hover .option:after {
+	transform: rotate(0);
+}
+
+.current {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 10;
+	position: relative;
+}
+
+.flag {
+	zoom: .2;
 }
